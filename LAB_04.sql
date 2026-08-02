@@ -136,6 +136,41 @@ update customers set AccontCreationDate= '2026-05-10' where customerid=101;
  select * from customers where customerid in (104 , 105);
 
  select * from  customers where lastname like 's%';
+ select * from accounts order by balance asc;
+ select * from accounts order by balance  desc limit 3;
+ select * from customers order by firstname asc;
+ select * from customers order by firstname asc , dateofbirth asc;
+ select distinct AccountType from accounts;
+ update accounts set accounttype = 'saving' where accounttype = 'saving';
+ select * from Transactions order by  amount desc limit  5 offset 2;
+ select * from transactions;
+ select * from customers order by lastname  asc;
+ select * from transactions order by amount desc limit 5;
+ select distinct tranasactiontype from transactions;
+ select * from transactions order by amount  limit 4 offset 3;
+ select * from customers where phone is null;
+ select * from customers where email is not null;
+ select * from customers where email is null;
+ select * from accounts where balance is not null;
+ select * from accounts;
+ select accountid,balance , case when balance >= 40000 then 'premium account' when balance >=25000 then 'stanadard account' else ' basic account' end as 'account status' from accounts;
+ select *from transactions;
+ select transactionid, amount, case when amount>8000 then ' high transactions' when amount >=4000 then ' medium transaction' else ' low transactions' end as ' transaction amount type ' from transactions;
+ 
+select *, sum(amount) over(order by amount) as total from transactions;
+select accountid, balance , rank() over(order by balance desc) as balancerank from accounts;
+ use bankingdb;
+select transactionid, amount, sum(amount) over(order by transactiondate asc) as ranning_total from transactions;
+ select * from transactions;
+  select transactionid, amount, avg(amount) over () as Average_transactions from transactions;
+  select *, rank() over( order by balance desc) as rnk from accounts;
+  select *, sum(balance)over (order by balance) as running_toatl from accounts;
+  select *, max(amount) over() as max_amt from transactions;
+
+ 
+ 
+ 
+ 
  
  
  
