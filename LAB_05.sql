@@ -207,7 +207,7 @@ select transactionid, amount, sum(amount) over(order by transactiondate asc) as 
   select * from customers where firstname like 's%' limit 5;
 select * from customers having firstname like 's%' limit 5;
 select * from transactions where tranasactiontype in ('deposit','withdraw') order by transactiondate desc;
-
+select * from transactions where amount between 3000 and 5000 order by transactiondate desc;
   
   
   
